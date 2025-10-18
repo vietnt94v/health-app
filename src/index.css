@@ -1,10 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+JP:wght@100..900&display=swap");
+
 @import "tailwindcss";
+@import "./styles/app.css";
+
+@theme {
+  --font-sans: "Inter", "Noto Sans JP", system-ui, sans-serif;
+  --color-primary-300: #ffcc21;
+  --color-primary-400: #ff963c;
+  --color-primary-500: #ea6c00;
+  --color-secondary-300: #8fe9d0;
+  --color-primary-300-400: #ffcc21;
+  --color-dark-600: #2e2e2e;
+  --color-dark-500: #414141;
+  --color-gray-400: #777777;
+}
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  font-weight: 400;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
