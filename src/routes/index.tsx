@@ -13,7 +13,6 @@ import RedirectIfAuthenticated from "./RedirectIfAuthenticated";
 
 export const router = createBrowserRouter(
   [
-    { path: "/column", element: <Column /> },
     {
       path: "/login",
       element: (
@@ -32,6 +31,10 @@ export const router = createBrowserRouter(
         { path: "/", element: <TopPage /> },
         { path: "/my-record", element: <MyRecord /> },
       ],
+    },
+    {
+      element: <AppLayout />,
+      children: [{ path: "/column", element: <Column /> }],
     },
   ],
   {

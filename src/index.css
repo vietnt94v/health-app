@@ -5,6 +5,7 @@
 
 @theme {
   --font-sans: "Inter", "Noto Sans JP", system-ui, sans-serif;
+  --color-light: #fff;
   --color-primary-300: #ffcc21;
   --color-primary-400: #ff963c;
   --color-primary-500: #ea6c00;
@@ -13,6 +14,12 @@
   --color-dark-600: #2e2e2e;
   --color-dark-500: #414141;
   --color-gray-400: #777777;
+  --breakpoint-lg: 62rem;
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1rem;
 }
 
 :root {
