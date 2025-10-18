@@ -1,0 +1,40 @@
+import { createBrowserRouter } from "react-router-dom";
+import PrivateRoute from "./PrivateRoute";
+import AppLayout from "@/layouts/AppLayout";
+
+// Importing the main application page
+import TopPage from "@/pages/top-page";
+import MyRecord from "@/pages/my-record";
+import Column from "@/pages/column";
+import Login from "@/pages/login";
+
+// Importing the remote page
+import RedirectIfAuthenticated from "./RedirectIfAuthenticated";
+
+export const router = createBrowserRouter(
+  [
+    { path: "/column", element: <Column /> },
+    {
+      path: "/login",
+      element: (
+        <RedirectIfAuthenticated>
+          <Login />
+        </RedirectIfAuthenticated>
+      ),
+    },
+    {
+      element: (
+        <PrivateRoute>
+          <AppLayout />
+        </PrivateRoute>
+      ),
+      children: [
+        { path: "/", element: <TopPage /> },
+        { path: "/my-record", element: <MyRecord /> },
+      ],
+    },
+  ],
+  {
+    basename: "/",
+  },
+);
