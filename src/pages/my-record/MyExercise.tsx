@@ -11,7 +11,7 @@ const MyExercise = () => {
       <div className="bg-dark-500 py-4">
         <div className="flex text-light px-6 mb-2">
           <h2 className="text-[15px]/[18px] tracking-[0.15px] w-24 text-wrap">
-            BODY RECORD
+            MY EXERCISE
           </h2>
           <span className="text-[22px]/[27px] tracking-[0.11px]">
             2021.05.21

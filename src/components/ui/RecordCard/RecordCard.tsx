@@ -10,13 +10,16 @@ const RecordCard: React.FC<RecordCardProps> = ({ imgUrl, title, subTitle }) => {
           alt={title}
           className="w-full h-full object-cover grayscale"
         />
-        <div className="absolute inset-0 bg-black/55">
-          <div className="flex flex-col justify-center items-center size-full">
-            <div className="text-center space-y-1 w-full">
+        <div className="absolute z-10 inset-0 mix-luminosity bg-black/50"></div>
+        <div className="absolute z-20 inset-0 flex">
+          <div className="flex flex-col flex-1 text-center space-y-2">
+            <div className="flex-1 flex items-end justify-center">
               <h3 className="text-primary-300 text-[25px]/[30px] tracking-[0.13px]">
                 {title}
               </h3>
-              <div className="bg-primary-400 text-light text-[14px]/[20px] mx-10 py-[2px]">
+            </div>
+            <div className="flex-1 flex items-start justify-center">
+              <div className="flex-none md:flex-1 bg-primary-400 text-light text-[14px]/[20px] w-38 md:w-auto md:mx-4 lg:mx-10 py-[2px]">
                 {subTitle}
               </div>
             </div>

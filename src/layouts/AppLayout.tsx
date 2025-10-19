@@ -6,7 +6,7 @@ const AppLayout = () => {
   return (
     <>
       <Header />
-      <main>
+      <main className="pt-16">
         <Outlet />
       </main>
       <Footer />

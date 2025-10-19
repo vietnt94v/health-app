@@ -13,7 +13,7 @@ import Cup from "@/assets/icons/cup.png";
 const Category = () => {
   const categories = Array.from({ length: 8 }, (_, i) => ({
     imgUrl: [M01, L01, L02, L03, D01, D02, S01][i % 7],
-    time: `${8 + Math.floor(i / 3)}:00 ${i % 2 === 0 ? "AM" : "PM"}`,
+    time: "05.21",
     type: ["Morning", "Lunch", "Dinner", "Snack"][i % 4] as
       | "Morning"
       | "Lunch"
@@ -30,17 +30,18 @@ const Category = () => {
 
   return (
     <>
-      <div className="flex justify-center py-6 space-x-21">
+      <div className="grid grid-cols-2 md:grid-cols-4 py-6 gap-x-5 lg:gap-x-21 gap-y-10 lg:gap-y-0 lg:px-30">
         {categoryTabs.map(tab => (
-          <Polygon
-            key={tab.label}
-            label={tab.label}
-            iconUrl={tab.iconUrl}
-            onClick={() => {}}
-          />
+          <div key={tab.label} className="flex justify-center">
+            <Polygon
+              label={tab.label}
+              iconUrl={tab.iconUrl}
+              onClick={() => {}}
+            />
+          </div>
         ))}
       </div>
-      <div className="grid grid-cols-4 gap-2 mb-7">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-2 mb-7">
         {categories.map(category => (
           <HeroCard
             key={category.time}

@@ -11,8 +11,8 @@ const HeroCard = (props: HeroCardProps) => {
             className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
           />
         </div>
-        <div className="absolute left-0 bottom-0 bg-primary-300">
-          <span>{props.time}</span>
+        <div className="absolute left-0 bottom-0 bg-primary-300 text-light text-[15px]/[18px] px-2 py-[7px]">
+          <span>{props.time}.</span>
           <span>{props.type}</span>
         </div>
       </div>

@@ -9,9 +9,15 @@ const MyRecord = () => {
       <div className="container">
         <div className="space-y-14">
           <NavigationRecord />
-          <BodyRecord />
-          <MyExercise />
-          <MyDiary />
+          <section id="body-record" className="section-scroll-mt">
+            <BodyRecord />
+          </section>
+          <section id="my-exercise" className="section-scroll-mt">
+            <MyExercise />
+          </section>
+          <section id="my-diary" className="section-scroll-mt">
+            <MyDiary />
+          </section>
         </div>
       </div>
     </>

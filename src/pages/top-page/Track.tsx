@@ -34,7 +34,7 @@ const Track = () => {
 
   return (
     <>
-      <div className="h-full bg-dark-600 pl-13 py-2 pr-25">
+      <div className="h-full">
         <LineChart data={data} />
       </div>
     </>

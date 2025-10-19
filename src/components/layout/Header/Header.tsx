@@ -5,6 +5,7 @@ import IconMemo from "@/assets/icons/memo.png";
 import IconChallenge from "@/assets/icons/challenge.png";
 import IconInfo from "@/assets/icons/info.png";
 import IconMenu from "@/assets/icons/menu.png";
+import IconClose from "@/assets/icons/close.png";
 import MenuDropdown from "./MenuDropdown";
 
 const Header = () => {
@@ -18,14 +19,14 @@ const Header = () => {
 
   return (
     <>
-      <header className="bg-dark-500 text-light">
+      <header className="bg-dark-500 fixed w-full z-50 shadow-md">
         <div className="container">
           <div className="flex justify-between py-3">
             <Link to="/" className="relative top-1">
               <img src={Logo} alt="Logo" className="h-10" />
             </Link>
-            <div className="flex">
-              <div className="flex">
+            <div className="flex space-x-16">
+              <div className="hidden lg:flex space-x-10 text-light">
                 {menus.map(menu => (
                   <NavLink
                     to={menu.to}
@@ -34,29 +35,35 @@ const Header = () => {
                       isActive ? "text-primary-400" : ""
                     }
                   >
-                    <div className="flex items-center">
+                    <div className="flex items-center space-x-2">
                       <div className="relative size-8">
-                        <img src={menu.icon} alt={menu.label} />
-                        {menu.count && menu.count > 0 && (
-                          <span className="absolute size-4 rounded-full bg-primary-500 top-0 right-0 text-xs flex items-center justify-center transform translate-x-1/2 -translate-y-1/2">
+                        <img
+                          src={menu.icon}
+                          alt={menu.label}
+                          className="w-full h-full object-contain"
+                        />
+                        {menu.count !== undefined && menu.count > 0 && (
+                          <span className="absolute top-0 -right-2 size-4 rounded-full bg-primary-500 text-light text-[10px] flex items-center justify-center">
                             {menu.count}
                           </span>
                         )}
                       </div>
-                      <span>{menu.label}</span>
+                      <span className="text-[16px]">{menu.label}</span>
                     </div>
                   </NavLink>
                 ))}
               </div>
-              <div className="block">
-                <div className="size-8">
+              <div className="relative flex items-center">
+                <div className="size-8 cursor-pointer">
                   <img
-                    src={IconMenu}
-                    alt="Icon Menu"
+                    src={isShowMenuDropdown ? IconClose : IconMenu}
+                    alt={isShowMenuDropdown ? "Icon Close" : "Icon Menu"}
                     onClick={() => setIsShowMenuDropdown(!isShowMenuDropdown)}
                   />
                 </div>
-                {isShowMenuDropdown && <MenuDropdown />}
+                <div className="absolute top-full right-0 z-40">
+                  {isShowMenuDropdown && <MenuDropdown />}
+                </div>
               </div>
             </div>
           </div>

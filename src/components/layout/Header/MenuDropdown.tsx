@@ -6,14 +6,18 @@ const MenuDropdown = () => {
     { label: "体重グラフ", to: "/" },
     { label: "目標", to: "/" },
     { label: "選択中のコース", to: "/" },
-    { label: "コラム一覧", to: "/" },
+    { label: "コラム一覧", to: "/column" },
     { label: "設定", to: "/" },
   ];
 
   return (
-    <div className="absolute right-0 z-10 mt-2 w-48 bg-dark-500 text-light">
+    <div className="w-70 bg-dark-500 text-light">
       {menuDropdown.map(item => (
-        <Link key={item.label} to={item.to} className="block px-4 py-2 text-sm">
+        <Link
+          key={item.label}
+          to={item.to}
+          className="block px-8 py-[23px] text-[18px]/[26px] border-t border-t-light/15 border-b border-b-dark-600/25"
+        >
           {item.label}
         </Link>
       ))}

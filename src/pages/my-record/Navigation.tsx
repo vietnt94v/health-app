@@ -9,25 +9,33 @@ const NavigationRecord = () => {
       imgUrl: MyRecommend1,
       title: "BODY RECORD",
       subTitle: "自分のカラダの記録",
+      id: "body-record",
     },
     {
       imgUrl: MyRecommend2,
       title: "MY EXERCISE",
       subTitle: "自分の運動の記録",
+      id: "my-exercise",
     },
-    { imgUrl: MyRecommend3, title: "MY DIARY", subTitle: "自分の日記" },
+    {
+      imgUrl: MyRecommend3,
+      title: "MY DIARY",
+      subTitle: "自分の日記",
+      id: "my-diary",
+    },
   ];
 
   return (
     <>
-      <div className="grid grid-cols-3 gap-12 pt-14">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-12 pt-14">
         {myRecordCards.map((card, index) => (
-          <RecordCard
-            key={index}
-            imgUrl={card.imgUrl}
-            title={card.title}
-            subTitle={card.subTitle}
-          />
+          <a key={index} href={`#${card.id}`}>
+            <RecordCard
+              imgUrl={card.imgUrl}
+              title={card.title}
+              subTitle={card.subTitle}
+            />
+          </a>
         ))}
       </div>
     </>

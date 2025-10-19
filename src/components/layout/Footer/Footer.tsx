@@ -13,12 +13,12 @@ const Footer = () => {
   return (
     <footer className="bg-dark-500 text-light py-14">
       <div className="container">
-        <div className="flex flex-wrap space-x-[45px]">
+        <div className="flex flex-wrap space-x-[30px] lg:space-x-[45px] space-y-4 lg:space-y-0">
           {menuFooter.map(item => (
             <Link
               key={item.label}
               to={item.to}
-              className="text-dark-300 text-[11px] text-nowrap"
+              className="text-dark-300 hover:text-primary-400 text-[11px] text-nowrap"
             >
               {item.label}
             </Link>
