@@ -9,7 +9,7 @@ const Button: React.FC<ButtonProps> = ({
   variant = "radient",
   size = "md",
 }) => {
-  const baseClass = "rounded-md";
+  const baseClass = "rounded-md cursor-pointer";
   const variantClass = {
     primary: "bg-primary text-white",
     radient: "bg-linear-to-t from-[#FFCC21] to-[#FF963C] text-white",
