@@ -11,10 +11,11 @@
   --color-primary-500: #ea6c00;
   --color-secondary-300: #8fe9d0;
   --color-primary-300-400: #ffcc21;
-  --color-dark-600: #2e2e2e;
   --color-dark-500: #414141;
+  --color-dark-600: #2e2e2e;
   --color-gray-400: #777777;
   --breakpoint-lg: 62rem;
+  --clip-hex: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 }
 
 @utility container {
