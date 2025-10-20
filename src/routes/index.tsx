@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 import AppLayout from "@/layouts/AppLayout";
+import LoginLayout from "@/layouts/LoginLayout";
 
 // Importing the main application page
 import TopPage from "@/pages/top-page";
@@ -14,12 +15,17 @@ import RedirectIfAuthenticated from "./RedirectIfAuthenticated";
 export const router = createBrowserRouter(
   [
     {
-      path: "/login",
-      element: (
-        <RedirectIfAuthenticated>
-          <Login />
-        </RedirectIfAuthenticated>
-      ),
+      element: <LoginLayout />,
+      children: [
+        {
+          path: "/login",
+          element: (
+            <RedirectIfAuthenticated>
+              <Login />
+            </RedirectIfAuthenticated>
+          ),
+        },
+      ],
     },
     {
       element: (

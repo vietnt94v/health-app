@@ -1,4 +1,10 @@
 {
+  "login": {
+    "user": {
+      "name": "Viet Nguyen",
+      "email": "vietnguyen@example.com"
+    }
+  },
   "meals": [
     {
       "id": "1",
