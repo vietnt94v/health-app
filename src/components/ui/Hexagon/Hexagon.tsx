@@ -1,12 +1,11 @@
-import type { PolygonProps } from "./Polygon.types";
+import type { HexagonProps } from "./Hexagon.types";
 
-const Polygon: React.FC<PolygonProps> = ({ label, iconUrl, onClick }) => {
+const Hexagon: React.FC<HexagonProps> = ({ label, iconUrl, onClick }) => {
   return (
     <>
       <div
         className="relative flex flex-col justify-center items-center w-[116px] h-[134px] shadow-md [clip-path:var(--clip-hex)] bg-[linear-gradient(90deg,#ffcc21_8.26%,#ff963c_91.18%)] cursor-pointer"
         onClick={onClick}
-        onKeyDown={e => e.key === "Enter" && onClick?.()}
         role="button"
         tabIndex={0}
       >
@@ -17,10 +16,12 @@ const Polygon: React.FC<PolygonProps> = ({ label, iconUrl, onClick }) => {
             className="w-full h-full object-contain"
           />
         </div>
-        <span className="text-[20px]/[24px] text-light">{label}</span>
+        <span className="text-[20px]/[24px] font-normal text-light capitalize">
+          {label}
+        </span>
       </div>
     </>
   );
 };
 
-export default Polygon;
+export default Hexagon;

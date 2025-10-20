@@ -1,4 +1,4 @@
-export interface PolygonProps {
+export interface HexagonProps {
   onClick?: () => void;
   label?: string;
   iconUrl?: string;

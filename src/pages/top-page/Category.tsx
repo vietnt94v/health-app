@@ -1,58 +1,77 @@
+import { useState, useEffect } from "react";
 import { Button, HeroCard } from "@/components/ui";
-import Polygon from "@/components/ui/Polygon";
-import M01 from "@/assets/images/m01.jpg";
-import L01 from "@/assets/images/l01.jpg";
-import L02 from "@/assets/images/l02.jpg";
-import L03 from "@/assets/images/l03.jpg";
-import D01 from "@/assets/images/d01.jpg";
-import D02 from "@/assets/images/d02.jpg";
-import S01 from "@/assets/images/s01.jpg";
+import Hexagon from "@/components/ui/Hexagon";
+import api from "@/services/api";
+import { API } from "@/constants";
 import Knife from "@/assets/icons/knife.png";
 import Cup from "@/assets/icons/cup.png";
 
+interface MealHistoryItem {
+  id: number;
+  img: string;
+  time: string;
+  type: "morning" | "lunch" | "dinner" | "snack";
+}
+
 const Category = () => {
-  const categories = Array.from({ length: 8 }, (_, i) => ({
-    imgUrl: [M01, L01, L02, L03, D01, D02, S01][i % 7],
-    time: "05.21",
-    type: ["Morning", "Lunch", "Dinner", "Snack"][i % 4] as
-      | "Morning"
-      | "Lunch"
-      | "Dinner"
-      | "Snack",
-  }));
+  const [mealHistory, setMealHistory] = useState<MealHistoryItem[]>([]);
+  const [filterMeal, setFilterMeal] = useState<string>("");
+  const [page, setPage] = useState<number>(1);
+  const [isLoading, setIsLoading] = useState(false);
 
   const categoryTabs = [
-    { label: "Morning", iconUrl: Knife },
-    { label: "Lunch", iconUrl: Knife },
-    { label: "Dinner", iconUrl: Knife },
-    { label: "Snack", iconUrl: Cup },
+    { type: "morning", iconUrl: Knife },
+    { type: "lunch", iconUrl: Knife },
+    { type: "dinner", iconUrl: Knife },
+    { type: "snack", iconUrl: Cup },
   ];
+
+  const handleGetMealHistory = async () => {
+    try {
+      setIsLoading(true);
+      const response = await api.get(
+        `${API.MEAL}?_page=${page}&_limit=8&type=${filterMeal}`,
+      );
+      setMealHistory(response.data);
+    } catch (error: unknown) {
+      throw new Error("Failed to fetch data", { cause: error });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    handleGetMealHistory();
+  }, [filterMeal, page]);
 
   return (
     <>
       <div className="grid grid-cols-2 md:grid-cols-4 py-6 gap-x-5 lg:gap-x-21 gap-y-10 lg:gap-y-0 lg:px-30">
         {categoryTabs.map(tab => (
-          <div key={tab.label} className="flex justify-center">
-            <Polygon
-              label={tab.label}
+          <div key={tab.type} className="flex justify-center">
+            <Hexagon
+              label={tab.type}
               iconUrl={tab.iconUrl}
-              onClick={() => {}}
+              onClick={() => {
+                setFilterMeal(tab.type);
+              }}
             />
           </div>
         ))}
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-2 mb-7">
-        {categories.map(category => (
+        {isLoading && <div>Loading...</div>}
+        {mealHistory.map(item => (
           <HeroCard
-            key={category.time}
-            imgUrl={category.imgUrl}
-            time={category.time}
-            type={category.type}
+            key={item.time}
+            imgUrl={item.img}
+            time={item.time}
+            type={item.type}
           />
         ))}
       </div>
       <div className="text-center mb-16">
-        <Button>記録をもっと見る</Button>
+        <Button onClick={() => setPage(page + 1)}>記録をもっと見る</Button>
       </div>
     </>
   );

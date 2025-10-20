@@ -14,7 +14,7 @@ const NavRecommend = () => {
             key={item.title}
             className="flex flex-col items-center justify-center px-2 py-6 text-center clip-hex bg-dark-600"
           >
-            <span className="text-primary-300 text-[22px]/[27px] flex-1">
+            <span className="text-primary-300 text-[22px]/[27px] font-normal flex-1">
               {item.title}
             </span>
             <hr className="w-14 border-light my-[10px]" />

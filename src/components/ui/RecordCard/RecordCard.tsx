@@ -14,7 +14,7 @@ const RecordCard: React.FC<RecordCardProps> = ({ imgUrl, title, subTitle }) => {
         <div className="absolute z-20 inset-0 flex">
           <div className="flex flex-col flex-1 text-center space-y-2">
             <div className="flex-1 flex items-end justify-center">
-              <h3 className="text-primary-300 text-[25px]/[30px] tracking-[0.13px]">
+              <h3 className="text-primary-300 text-[25px]/[30px] font-normal tracking-[0.13px]">
                 {title}
               </h3>
             </div>

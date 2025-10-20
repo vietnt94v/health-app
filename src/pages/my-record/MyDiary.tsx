@@ -13,14 +13,14 @@ const MyDiary = () => {
   return (
     <>
       <div className="mb-14">
-        <h2 className="text-[22px]/[27px] mb-1">MY DIARY</h2>
+        <h2 className="font-normal text-[22px]/[27px] mb-1">MY DIARY</h2>
         <div className="grid grid-cols-4 gap-3 mb-[30px]">
           {myDiary.map(diary => (
             <div
               key={diary.id}
               className="border-2 border-gray-400 p-4 aspect-square text-dark-500"
             >
-              <div className="text-[18px] flex flex-col mb-2">
+              <div className="text-[18px] font-normal flex flex-col mb-2">
                 <span>{diary.date}</span>
                 <span>{diary.time}</span>
               </div>

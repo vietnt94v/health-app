@@ -9,7 +9,7 @@ const MyExercise = () => {
   return (
     <>
       <div className="bg-dark-500 py-4">
-        <div className="flex text-light px-6 mb-2">
+        <div className="flex text-light font-normal px-6 mb-2">
           <h2 className="text-[15px]/[18px] tracking-[0.15px] w-24 text-wrap">
             MY EXERCISE
           </h2>

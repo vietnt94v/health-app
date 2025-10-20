@@ -7,7 +7,7 @@ const Progress = () => {
       <div className="relative h-full w-full overflow-hidden">
         <img src={D01} alt="D01" className="object-cover w-full h-full" />
         <div className="absolute inset-0 flex items-center justify-center">
-          <CircleProgress percent={85} date="05/21" />
+          <CircleProgress percent={75} date="05/21" thickness={3} />
         </div>
       </div>
     </>

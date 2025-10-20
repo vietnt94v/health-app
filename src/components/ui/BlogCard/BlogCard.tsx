@@ -7,7 +7,7 @@ const Card = (props: BlogCardProps) => {
       <div className="cursor-pointer">
         <div className="relative mb-2">
           <div className="absolute bottom-0 left-0 z-20">
-            <div className="bg-primary-300 text-light text-[15px] px-2 space-x-3 py-[1px]">
+            <div className="bg-primary-300 text-light text-[15px] font-normal px-2 space-x-3 py-[0.75px]">
               <span>{props.date}</span>
               <span>{props.time}</span>
             </div>
@@ -25,10 +25,8 @@ const Card = (props: BlogCardProps) => {
         </h2>
         <div className="flex space-x-2">
           {props.tags?.map(tag => (
-            <Link to={tag.linkTo || "#"} key={tag.label}>
-              <span className="text-primary-400 cursor-pointer">
-                #{tag.label}
-              </span>
+            <Link to={"#"} key={tag}>
+              <span className="text-primary-400 cursor-pointer">#{tag}</span>
             </Link>
           ))}
         </div>
