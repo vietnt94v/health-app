@@ -17,7 +17,7 @@ const useAuthStore = create<AuthState>(set => ({
       await new Promise(resolve => setTimeout(resolve, 1000));
       set({ isLoggedIn: true, isAuthLoading: false });
     } catch (error) {
-      console.error("Login failed:", error);
+      throw new Error(`Error: ${(error as Error).message}`);
     } finally {
       set({ isAuthLoading: false });
     }
