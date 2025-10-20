@@ -17,7 +17,7 @@ const Login = () => {
 
   return (
     <div className="h-full flex items-center justify-center px-4">
-      <div className="max-w-[500px] w-full p-10 border border-primary-300 shadow-lg rounded -mt-40">
+      <div className="max-w-[500px] w-full p-10 border-2 border-primary-400 shadow-lg rounded -mt-40">
         <form onSubmit={handleSubmit} className="flex flex-col space-y-6">
           <div>
             <label htmlFor="username" className="block font-bold mb-1">
@@ -27,7 +27,7 @@ const Login = () => {
               type="text"
               id="username"
               name="username"
-              className="border w-full rounded px-4 py-3"
+              className="border border-primary-300 w-full rounded px-4 py-3"
             />
           </div>
           <div>
@@ -38,7 +38,7 @@ const Login = () => {
               type="password"
               id="password"
               name="password"
-              className="border w-full rounded px-4 py-3"
+              className="border border-primary-300 w-full rounded px-4 py-3"
             />
           </div>
           <div className="text-center">
